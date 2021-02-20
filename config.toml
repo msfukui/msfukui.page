@@ -1,6 +1,6 @@
-baseURL = "http://msfukui.jp/"
+baseURL = "https://msfukui.page/"
 languageCode = "ja-jp"
-title = "msfukui.jp"
+title = "msfukui.page"
 theme = "minimal"
 googleAnalytics = ""
 
