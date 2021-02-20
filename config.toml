@@ -1,30 +1,35 @@
 baseURL = "http://msfukui.jp/"
-languageCode = "ja_JP"
-title = "msfukui's site"
+languageCode = "ja-jp"
+title = "ふくいのページ"
 theme = "minimal"
 googleAnalytics = ""
 
 [params]
     author = "msfukui"
-    description = "Is it a personal blog?"
+    description = "おおまさのみみはそらのみみ"
     githubUsername = "msfukui"
     accent = "red"
     showBorder = true
     backgroundColor = "white"
-    font = "Raleway" # should match the name on Google Fonts!
+    font = "Raleway"
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift", "ruby"]
 
 [[menu.main]]
     url = "/"
-    name = "Home"
+    name = "Root"
     weight = 1
 
 [[menu.main]]
     url = "/posts/"
     name = "Posts"
     weight = 2
+
+[[menu.main]]
+    url = "/slides/"
+    name = "Slides"
+    weight = 3
 
 [[menu.icon]]
     url = "mailto:msfukui@gmail.com"
