@@ -1,12 +1,12 @@
 baseURL = "http://msfukui.jp/"
 languageCode = "ja-jp"
-title = "ふくいのページ"
+title = "msfukui.jp"
 theme = "minimal"
 googleAnalytics = ""
 
 [params]
     author = "msfukui"
-    description = "おおまさのみみはそらのみみ"
+    description = "おおまさのみみはそらのみみ。"
     githubUsername = "msfukui"
     accent = "red"
     showBorder = true
@@ -27,9 +27,19 @@ googleAnalytics = ""
     weight = 2
 
 [[menu.main]]
+    url = "https://msfukui.hatenablog.com"
+    name = "Blog"
+    weight = 3
+
+[[menu.main]]
     url = "/slides/"
     name = "Slides"
-    weight = 3
+    weight = 4
+
+[[menu.main]]
+    url = "/projects/"
+    name = "Projects"
+    weight = 5
 
 [[menu.icon]]
     url = "mailto:msfukui@gmail.com"
