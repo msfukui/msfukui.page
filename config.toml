@@ -1,4 +1,4 @@
-baseURL = "https://msfukui.page/"
+baseURL = "http://msfukui.page/"
 languageCode = "ja-jp"
 title = "msfukui.page"
 theme = "minimal"

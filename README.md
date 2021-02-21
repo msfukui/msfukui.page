@@ -56,3 +56,7 @@ And go to `http://localhost:1313`.
 * ブログをGKEでの運用に移行した | tsub's blog
 
     https://blog.tsub.me/post/operate-blog-server-on-gke/
+
+* Dockerを使用したNGINXとNGINX Plusのデプロイ | NGINX
+
+    https://www.nginx.co.jp/blog/deploying-nginx-nginx-plus-docker/
