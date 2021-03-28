@@ -152,8 +152,12 @@ Deploy pods:
 
 ```
 $ kubectl apply -f manifests/deployment.yml
-deployment.apps/msfukui-page-deployment created
+deployment.apps/msfukui-page-deployment configured
 $ kubectl get pods
+NAME                                       READY   STATUS    RESTARTS   AGE
+msfukui-page-deployment-5c68dd89b7-6shqw   1/1     Running   0          73m
+msfukui-page-deployment-5c68dd89b7-7cb5d   1/1     Running   0          73m
+msfukui-page-deployment-5c68dd89b7-wz6kb   1/1     Running   0          73m
 ```
 
 Deploy a service:
@@ -161,6 +165,10 @@ Deploy a service:
 ```
 $ kubectl apply -f manifests/service.yml
 service/msfukui-page-service configured
+$ kubectl get services -o wide
+NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+kubernetes             ClusterIP   10.96.0.1       <none>        443/TCP   44d   <none>
+msfukui-page-service   ClusterIP   10.100.208.97   <none>        80/TCP    52m   app=msfukui-page
 ```
 
 Since the ingress and TLS certificates are managed on the cluster side, they are omitted in this section.
