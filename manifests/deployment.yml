@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msfukui-page-deployment
+spec:
+  selector:
+    matchLabels:
+      app: msfukui-page
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: msfukui-page
+    spec:
+      containers:
+        - name: msfukui-page
+          image: ghcr.io/msfukui/msfukui.page:latest
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: msfukui-ghcr-secret-token
