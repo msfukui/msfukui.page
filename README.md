@@ -202,3 +202,7 @@ Since the ingress and TLS certificates are managed on the cluster side, they are
 * docker buildx build
 
     https://docs.docker.com/engine/reference/commandline/buildx_build/
+
+* GitHub Actions による GitHub Pages への自動デプロイ -- Qiita
+
+    https://qiita.com/peaceiris/items/d401f2e5724fdcb0759d
