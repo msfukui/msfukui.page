@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  IMAGE_NAME: msfukui.page
+
 jobs:
   ghcr-publish:
     runs-on: ubuntu-latest
@@ -39,7 +42,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CR_PAT }}
       -
         name: Build and push
         id: docker_build_push
@@ -47,8 +50,8 @@ jobs:
         with:
           context: .
           platforms: linux/arm64
-          push: false
-          tags: msfukui/msfukui.page:latest
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build_push.outputs.digest }}
