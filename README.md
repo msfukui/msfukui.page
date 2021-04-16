@@ -107,7 +107,7 @@ Platforms: linux/amd64, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, 
 
 ```
 $ docker buildx use pitanetes_builder
-$ docker buildx build --platform linux/arm64 -t ghcr.io/msfukui/msfukui.page . --push
+$ docker buildx build --platform linux/amd64,linux/arm64 -t ghcr.io/msfukui/msfukui.page . --push
 [+] Building 12.7s (12/12) FINISHED
  => [internal] load build definition from Dockerfile                               0.0s
  => => transferring dockerfile: 32B                                                0.0s
@@ -173,6 +173,27 @@ msfukui-page-service   ClusterIP   10.100.208.97   <none>        80/TCP    52m  
 
 Since the ingress and TLS certificates are managed on the cluster side, they are omitted in this section.
 
+## Upgrade containers only
+
+```
+$ kubectl rollout restart deployment/msfukui-page-deployment
+deployment.apps/msfukui-page-deployment restarted
+```
+
+## Get a shell to the running container
+
+example:
+
+```
+$ kubectl get pods
+NAME                                       READY   STATUS    RESTARTS   AGE
+msfukui-page-deployment-********-7lmrd   1/1     Running   0          44s
+msfukui-page-deployment-********-gmkb5   1/1     Running   0          33s
+msfukui-page-deployment-********-xxjnb   1/1     Running   0          38s
+$ kubectl exec --stdin --tty msfukui-page-deployment-********-7lmrd -- /bin/bash
+root@msfukui-page-deployment-********-7lmrd:/#
+```
+
 ## Futures
 
 * Build the image and deploy to the k8s cluster with github actions.
@@ -214,3 +235,11 @@ Since the ingress and TLS certificates are managed on the cluster side, they are
 * Docker GitHub Actions - Docker Blog
 
     https://www.docker.com/blog/docker-github-actions/
+
+* OCI image-spec annotations.md
+
+    https://github.com/opencontainers/image-spec/blob/master/annotations.md
+
+* GitHub Actionsでset-envが非推奨になったので$GITHUB_ENV使う
+
+    https://zenn.dev/uta_mory/articles/14e358a2dbf6e47400dc
