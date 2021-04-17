@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths_ignore:
+      - README.md
+      - .gitignore
+      - exampleSite/**
     tags:
       - v*
 
@@ -48,9 +52,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
       -
-        name: Set version tag
-        id: set_version_tag
+        name: Set docker version tags
+        id: tags
         run: |
+          REGISTRY="ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}"
+
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
@@ -58,12 +64,13 @@ jobs:
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && TAGS="${REGISTRY}:latest"
+          [ "$VERSION" != "main" ] && TAGS="${REGISTRY}:latest,${REGISTRY}:$VERSION"
 
-          echo $VERSION
+          echo $TAGS
 
           # Set value to this step's outputs
-          echo "::set-output name=version::$VERSION"
+          echo "::set-output name=name::$TAGS"
       -
         name: Build and push
         id: docker_build_push
@@ -72,7 +79,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.set_version_tag.outputs.version }}
+          tags: ${{ steps.tags.outputs.name }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build_push.outputs.digest }}
