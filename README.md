@@ -1,5 +1,7 @@
 # msfukui.page
 
+[![build the latest container & publish](https://github.com/msfukui/msfukui.page/actions/workflows/ghcr-publish.yml/badge.svg)](https://github.com/msfukui/msfukui.page/actions/workflows/ghcr-publish.yml)
+
 msfukui's website by Hugo and Minimal.
 
 ## Setup
