@@ -41,14 +41,20 @@ And go to `http://localhost:1313`.
 
 (`-D` is include content marked as draft.)
 
-## Publish
+## Publish (manual)
 
-Build the content, build the container image, push and deploy.
+Below are the steps to manually build the content, build the container image and push.
+
+This process is now automated with github actions.
+
+See the github actions workflow for more information.
+
+https://github.com/msfukui/msfukui.page/blob/main/.github/workflows/ghcr-publish.yml
 
 ### Build the content
 
 ```
-$ hugo
+$ hugo --minify
 Start building sites …
 
                    | EN
@@ -141,7 +147,9 @@ $ docker logout ghcr.io
 Removing login credentials for ghcr.io
 ```
 
-### Deploy
+## Deploy
+
+### Setup and deploy the first
 
 Register the read-only access token of ghcr.io as a secret in the container registry in advance.
 
@@ -175,7 +183,7 @@ msfukui-page-service   ClusterIP   10.100.208.97   <none>        80/TCP    52m  
 
 Since the ingress and TLS certificates are managed on the cluster side, they are omitted in this section.
 
-## Upgrade containers only
+### Upgrade containers only
 
 ```
 $ kubectl rollout restart deployment/msfukui-page-deployment
@@ -198,7 +206,7 @@ root@msfukui-page-deployment-********-7lmrd:/#
 
 ## Futures
 
-* Build the image and deploy to the k8s cluster with github actions.
+* ~~Build the image, push and~~ deploy to the k8s cluster with github actions.
 
 ## Reference
 

@@ -49,6 +49,7 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       -
         name: Set version tag
+        id: set_version_tag
         run: |
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
@@ -59,8 +60,10 @@ jobs:
           # Use Docker `latest` tag convention
           [ "$VERSION" == "main" ] && VERSION=latest
 
-          echo "VERSION=$VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo $VERSION
+
+          # Set value to this step's outputs
+          echo "::set-output name=version::$VERSION"
       -
         name: Build and push
         id: docker_build_push
@@ -69,7 +72,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          tags: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ steps.set_version_tag.outputs.version }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build_push.outputs.digest }}
