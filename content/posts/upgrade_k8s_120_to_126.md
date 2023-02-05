@@ -2,7 +2,7 @@
 title: "おうち Kubernetes クラスターを v1.20 から v1.26 に上げる"
 date: 2023-02-04
 tags: [kubernetes]
-draft: true
+draft: false
 ---
 
 ## この記事は?
