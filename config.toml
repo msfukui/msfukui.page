@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "ja-jp"
 title = "msfukui.page"
-theme = "minimal"
+theme = "anubis"
 googleAnalytics = ""
 
 [params]
@@ -15,6 +15,7 @@ googleAnalytics = ""
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift", "ruby"]
+    style = "auto-without-switcher"
 
 [[menu.main]]
     url = "/"
