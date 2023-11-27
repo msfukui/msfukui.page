@@ -7,7 +7,8 @@ googleAnalytics = ""
 
 [languages]
     [languages.ja]
-        dateformat = "1月2日, 2006年"
+        [languages.ja.params]
+            dateformat = "1月2日, 2006年"
 
 [markup.highlight]
 style = "github-dark"
