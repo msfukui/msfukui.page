@@ -1,6 +1,6 @@
 ---
 title: Slides
-description: これまでに作ったスライドの一覧です。
+description: presentation slides
 ---
 
 * [Git 最初の一歩](https://msfukui.github.io/first-step-of-git/)

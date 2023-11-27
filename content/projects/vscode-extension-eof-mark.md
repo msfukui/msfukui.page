@@ -1,8 +1,11 @@
 ---
-title: "Vscode Extension Eof Mark"
-description: "VSCode のファイル末尾に [EOF] のマークを表示するだけの Extension です。"
-repo: "vscode-extension-eof-mark"
+title: "VSCode Extension Eof Mark"
+description: "VSCode Extention Eof Mark"
+date: "2018-11-11"
 tags: [vscode]
-weight: 0
 draft: false
 ---
+
+VSCode のファイル末尾に [EOF] のマークを表示するだけの Extension です。
+
+https://github.com/msfukui/vscode-extension-eof-mark

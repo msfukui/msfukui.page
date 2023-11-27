@@ -1,61 +1,64 @@
 baseURL = "/"
-languageCode = "ja-jp"
+languagecode = "ja"
+defaultcontentlanguage = "ja"
 title = "msfukui.page"
-theme = "anubis"
+theme = "hugo-coder"
 googleAnalytics = ""
+
+[markup.highlight]
+style = "github-dark"
 
 [params]
     author = "msfukui"
-    description = "おおまさのみみはそらのみみ。"
-    githubUsername = "msfukui"
-    accent = "red"
-    showBorder = true
-    backgroundColor = "white"
+    info = "おおまさのみみはそらのみみ。"
+    description = "msfukui's personal website"
+    keywords = "blog,developer,personal"
+    avatarurl = "/images/msfukui.jpg"
+    favicon_16 = "/images/msfukui.ico"
+    favicon_32 = "/images/msfukui.ico"
+    touchIcon = "/images/msfukui.ico"
+    since = 2021
+    enableTwemoji = true
+    colorScheme = "auto"
+    hidecolorschemetoggle = false
     font = "M PLUS Rounded 1c"
-    highlight = true
-    highlightStyle = "default"
-    highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift", "ruby"]
-    style = "auto-without-switcher"
 
-[[menu.main]]
-    url = "/"
-    name = "Home"
+[[params.social]]
+    name = "github"
+    icon = "fa fa-github fa-2x"
     weight = 1
+    url = "https://github.com/msfukui"
+
+[[params.social]]
+  name = "twitter"
+  icon = "fa fa-twitter fa-2x"
+  weight = 2
+  url = "https://twitter.com/msfukui"
 
 [[menu.main]]
     url = "/about/"
     name = "About"
-    weight = 2
+    weight = 1
 
 [[menu.main]]
     url = "/posts/"
     name = "Posts"
-    weight = 3
-
-[[menu.main]]
-    url = "https://msfukui.hatenablog.com"
-    name = "Blog"
-    weight = 4
+    weight = 2
 
 [[menu.main]]
     url = "/slides/"
     name = "Slides"
-    weight = 5
+    weight = 3
 
 [[menu.main]]
     url = "/projects/"
     name = "Projects"
-    weight = 6
+    weight = 4
 
-[[menu.icon]]
-    url = "https://github.com/msfukui"
-    name = "fab fa-github"
-    weight = 1
-
-[[menu.icon]]
-    url = "https://twitter.com/msfukui"
-    name = "fab fa-twitter"
-    weight = 2
+[[menu.main]]
+    url = "https://msfukui.hatenablog.com"
+    name = "Other"
+    weight = 5
 
 [markup]
     [markup.goldmark]
