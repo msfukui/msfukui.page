@@ -5,6 +5,10 @@ title = "msfukui.page"
 theme = "hugo-coder"
 googleAnalytics = ""
 
+[languages]
+    [languages.ja]
+        dateformat = "1月2日, 2006年"
+
 [markup.highlight]
 style = "github-dark"
 
@@ -57,7 +61,7 @@ style = "github-dark"
 
 [[menu.main]]
     url = "https://msfukui.hatenablog.com"
-    name = "Other"
+    name = "Blog"
     weight = 5
 
 [markup]
